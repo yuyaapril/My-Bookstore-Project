@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<th:block th:insert="~{layouts/shares :: head }"></th>
+  <body>
+    <th:block th:insert="~{layouts/nav :: nav }"></th>
+
+  <div class="container">
+      <h1 class="text-center my-5">ALL Users</h1>
+      <table class="table table-bordered">
+<thead>
+    <tr>
+      <th scope="col">No</th>
+      <th scope="col">Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td scope="row">1</td>
+      <td>001</td>
+      <td>Admin</td>
+      <td>admin@gmail.com</td>
+      <td>
+        <a href="/edit" class="btn btn-sm btn-warning">
+          <i class="fa fa-edit"></i>
+        </a>
+        <a href="/ban" class="btn btn-sm btn-success">
+          <i class="fa fa-trash"></i>
+        </a>
+        <a href="/delete" class="btn btn-sm btn-danger">
+          <i class="fa fa-trash"></i>
+        </a>       
+      </td>
+    </tr>
+    <tr>
+      <td scope="row">2</td>
+      <td>002</td>
+      <td>Admin</td>
+      <td>admin@gmail.com</td>
+      <td>
+        <a href="/edit" class="btn btn-sm btn-warning">
+          <i class="fa fa-edit"></i>
+        </a>
+        <a href="/ban" class="btn btn-sm btn-success">
+          <i class="fa fa-trash"></i>
+        </a>
+        <a href="/delete" class="btn btn-sm btn-danger">
+          <i class="fa fa-trash"></i>
+        </a>       
+      </td>
+    </tr>
+        <tr>
+      <td scope="row">3</td>
+      <td>003</td>
+      <td>Admin</td>
+      <td>admin@gmail.com</td>
+      <td>
+        <a href="/edit" class="btn btn-sm btn-warning">
+          <i class="fa fa-edit"></i>
+        </a>
+        <a href="/ban" class="btn btn-sm btn-success">
+          <i class="fa fa-trash"></i>
+        </a>
+        <a href="/delete" class="btn btn-sm btn-danger">
+          <i class="fa fa-trash"></i>
+        </a>       
+      </td>
+    </tr>
+        <tr>
+      <td scope="row">4</td>
+      <td>004</td>
+      <td>Admin</td>
+      <td>admin@gmail.com</td>
+      <td>
+        <a href="/edit" class="btn btn-sm btn-warning">
+          <i class="fa fa-edit"></i>
+        </a>
+        <a href="/ban" class="btn btn-sm btn-success">
+          <i class="fa fa-trash"></i>
+        </a>
+        <a href="/delete" class="btn btn-sm btn-danger">
+          <i class="fa fa-trash"></i>
+        </a>       
+      </td>
+    </tr>    
+   
+  </tbody>
+</table>
+  </div>     
+    <th:block th:insert="~{layouts/shares :: foot}"></th>
+  </body>
+</html>
