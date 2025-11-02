@@ -1,0 +1,9 @@
+Book Store
+- Design - (Thymeleaf Reload)
+  - Home Page
+  - Book (Filtering)
+  - Category
+  - User
+  - Role (Admin Role)
+- Develop
+  - Spring Boot
