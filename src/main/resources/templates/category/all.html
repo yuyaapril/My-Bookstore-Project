@@ -1,14 +1,14 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<th:block th:insert="~{layouts/shares :: head }"></th>
+<th:block th:insert="~{layouts/shares :: head }"></th:block>
   <body>
-    <th:block th:insert="~{layouts/nav :: nav }"></th>
+    <th:block th:insert="~{layouts/nav :: nav }"></th:block>
 
   <div class="container">
     <div class="d-flex justify-content-between my-5">
       <h5 class="text-center">ALL Categories</h5>
       <div>
-        <a href="/add" class="btn btn-primary btn-sm">
+        <a href="/cats/add" class="btn btn-primary btn-sm">
           <i class="fa fa-add"></i>
         </a>
       </div>
@@ -24,89 +24,23 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td scope="row">1</td>
+    <tr th:each="cat : ${cats}">
       <td>1</td>
-      <td>ITPEC</td>
+      <td th:text="${cat.id}">1</td>
+      <td th:text="${cat.name}">ITPEC</td>
       <td>
-        <a href="/edit" class="btn btn-sm btn-warning">
+        <a th:href="@{/cats/edit/{id}(id=${cat.id})}" class="btn btn-sm btn-warning">
           <i class="fa fa-edit"></i>
         </a>
-        <a href="/ban" class="btn btn-sm btn-success">
-          <i class="fa fa-trash"></i>
-        </a>
-        <a href="/delete" class="btn btn-sm btn-danger">
+
+        <a th:href="@{/cats/drop/{id}(id=${cat.id})}" class="btn btn-sm btn-danger">
           <i class="fa fa-trash"></i>
         </a>       
       </td>
     </tr>  
-        <tr>
-      <td scope="row">2</td>
-      <td>2</td>
-      <td>JAPANESE</td>
-      <td>
-        <a href="/edit" class="btn btn-sm btn-warning">
-          <i class="fa fa-edit"></i>
-        </a>
-        <a href="/ban" class="btn btn-sm btn-success">
-          <i class="fa fa-trash"></i>
-        </a>
-        <a href="/delete" class="btn btn-sm btn-danger">
-          <i class="fa fa-trash"></i>
-        </a>       
-      </td>
-    </tr> 
-        <tr>
-      <td scope="row">3</td>
-      <td>3</td>
-      <td>FRONTEND</td>
-      <td>
-        <a href="/edit" class="btn btn-sm btn-warning">
-          <i class="fa fa-edit"></i>
-        </a>
-        <a href="/ban" class="btn btn-sm btn-success">
-          <i class="fa fa-trash"></i>
-        </a>
-        <a href="/delete" class="btn btn-sm btn-danger">
-          <i class="fa fa-trash"></i>
-        </a>       
-      </td>
-    </tr> 
-        <tr>
-      <td scope="row">4</td>
-      <td>4</td>
-      <td>BACKEND</td>
-      <td>
-        <a href="/edit" class="btn btn-sm btn-warning">
-          <i class="fa fa-edit"></i>
-        </a>
-        <a href="/ban" class="btn btn-sm btn-success">
-          <i class="fa fa-trash"></i>
-        </a>
-        <a href="/delete" class="btn btn-sm btn-danger">
-          <i class="fa fa-trash"></i>
-        </a>       
-      </td>
-    </tr> 
-        <tr>
-      <td scope="row">5</td>
-      <td>5</td>
-      <td>ITPEC</td>
-      <td>
-        <a href="/edit" class="btn btn-sm btn-warning">
-          <i class="fa fa-edit"></i>
-        </a>
-        <a href="/ban" class="btn btn-sm btn-success">
-          <i class="fa fa-trash"></i>
-        </a>
-        <a href="/delete" class="btn btn-sm btn-danger">
-          <i class="fa fa-trash"></i>
-        </a>       
-      </td>
-    </tr> 
   </tbody>
 </table>
   </div>     
-    <th:block th:insert="~{layouts/shares :: foot}"></th>
+    <th:block th:insert="~{layouts/shares :: foot}"></th:block>
   </body>
 </html>
