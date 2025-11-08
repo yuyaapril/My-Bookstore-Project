@@ -7,15 +7,12 @@
   <div class="container">
     <h3 class="text-center my-3">Add New Book</h3>
     <div class="col-md-6 offset-md-3">
-      <form action="/admin/book/add" method="post" enctype="multipart/form-data">
+      <form action="/books/add" method="post" enctype="multipart/form-data">
 
         <div class="mb-3">
           <label for="categoryId" class="form-label">Select Category : </label>
           <select class="form-select mb-3" name="categoryId" id="categoryId">
-            <option selected>Open this select menu</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            <option th:each="cat : ${cats}" th:text="${cat.name}" th:value="${cat.id}">Three</option>
           </select>
         </div>
 
@@ -51,8 +48,8 @@
           </div>
 
           <div class="mb-3">
-            <label for="formFile" class="form-label">Pick Cover Image</label>
-            <input class="form-control" type="file" id="formFile" name="coverImage" required>
+            <label for="coverImage" class="form-label">Pick Cover Image</label>
+            <input class="form-control" type="file" id="coverImage" name="coverImage" required>
           </div> 
           <div class="d-flex justify-content-end">
           <button type="submit" class="btn btn-primary btn-sm">Add</button>

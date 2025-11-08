@@ -8,7 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.bookstore.models.Category;
-import com.example.bookstore.models.Role;
 import com.example.bookstore.services.CatService;
 
 import lombok.AllArgsConstructor;
