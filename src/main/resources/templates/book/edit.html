@@ -4,9 +4,63 @@
   <body>
     <th:block th:insert="~{layouts/nav :: nav }"></th:block>
 
-    <div class="container">
-      <h1 class="text-center my-5">Book Edit Page</h1>
-    </div>    
+  <div class="container">
+    <h3 class="text-center my-3">Add New Book</h3>
+    <div class="col-md-6 offset-md-3">
+      <form th:action="@{/books/edit/{id}(id=${book.id})}" method="post" enctype="multipart/form-data">
+
+        <div class="mb-3">
+          <label for="categoryId" class="form-label">Select Category : </label>
+          <select class="form-select mb-3" name="categoryId" id="categoryId">
+            <option th:each="cat : ${cats}" th:text="${cat.name}" th:value="${cat.id}">Three</option>
+          </select>
+        </div>
+
+          <div class="mb-3">
+          <label for="title" class="form-label">Title : </label>
+          <input type="text" class="form-control" id="title" name="title" required th:value="${book.title}">
+          </div>
+
+          <div class="mb-3">
+          <label for="author" class="form-label">Author : </label>
+          <input type="text" class="form-control" id="author" name="author" required th:value="${book.author}">
+          </div>
+
+          <div class="mb-3">
+          <label for="publicationDate" class="form-label">Publish Date : </label>
+          <input type="date" class="form-control" id="publicationDate" name="publicationDate" th:value="${book.publicationDate}">
+          </div>
+
+          <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea class="form-control" id="description" rows="3"
+            name="description" required> [[${book.description}]]</textarea>
+          </div>
+
+          <div class="mb-3">
+          <label for="price" class="form-label">Price : </label>
+          <input type="number" class="form-control" id="price" name="price" required minlength="3"
+          th:value="${book.price}">
+          Kyts</div>
+
+          <div class="mb-3">
+          <label for="stock" class="form-label">Stock : </label>
+          <input type="number" class="form-control" id="stock" name="stock" required minlength="2"
+          th:value="${book.stock}">
+          </div>
+
+          <div class="mb-3">
+            <label for="coverImage" class="form-label">Pick Cover Image [[${book.coverImageUrl}]]
+              <img th:src="@{/imgs/{image}(image=${book.coverImageUrl})}" alt="" width="30" height="30">
+            </label>
+            <input class="form-control" type="file" id="coverImage" name="coverImage" >
+          </div> 
+          <div class="d-flex justify-content-end">
+          <button type="submit" class="btn btn-primary btn-sm">Update</button>
+          </div>       
+     </form>
+    </div>
+  </div>   
     <th:block th:insert="~{layouts/shares :: foot}"></th:block>
   </body>
 </html>

@@ -8,10 +8,20 @@
 
      <div class="d-flex justify-content-between my-5">
       <h5 class="text-center">ALL Books</h5>
-      <div>
+      <div class="d-flex justify-content-end">
         <a href="/books/add" class="btn btn-primary btn-sm">
           <i class="fa fa-add"></i>
         </a>
+        <div class="dropdown px-2">
+          <button class="btn btn-success btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+           Filter
+          </button>
+          <ul class="dropdown-menu">
+            <li  th:each="cat : ${cats}" > 
+              <a class="dropdown-item" th:href="@{/books/bycat/{id}(id=${cat.id})}" th:text="${cat.name}">Action</a></li>
+            <li><a class="dropdown-item" href="/books">All</a></li>
+          </ul>
+        </div>
       </div>
     </div>
 
@@ -24,20 +34,20 @@
               <h5 class="card-title" th:text="${book.title}">Book Title</h5>
               <h6>Writer <span class="text-danger" th:text="${book.author}"> Ei Maung </span></h6>
               <p class="card-text" th:text="${book.description}">Book Description</p>
-              <p class="card-text" th:text="${book.price}">Price - <span class="text-secondary">20,000</span> MMK </p>
-              <p class="card-text">Stock - <span class="text-secondary" th:text="${book.price}">200</span> </p>
+              <p class="card-text" >Price - <span class="text-secondary" th:text="${book.price}">20,000 </span> Kyats </p>
+              <p class="card-text">Stock - <span class="text-secondary" th:text="${book.stock}">200</span> </p>
               <a href="#" class="btn btn-success btn-sm">Order Now
                 <i class="fa-solid fa-cart-plus"></i>
               </a>
 
               <!-- For Admin -->
-<!--
-              <a href="#" class="btn btn-warning btn-sm">
+
+              <a th:href="@{/books/edit/{id}(id=${book.id})}" class="btn btn-warning btn-sm">
                 <i class="fa fa-edit"></i>
               </a>
               <a href="#" class="btn btn-danger btn-sm">
                 <i class="fa fa-trash"></i>
-              </a>-->
+              </a>
 
               </div>
               </div>
