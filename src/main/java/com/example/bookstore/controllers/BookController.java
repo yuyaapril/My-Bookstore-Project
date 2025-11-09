@@ -135,6 +135,11 @@ public class BookController {
     model.addAttribute("books", books);
       return "book/all";
   }
+  @GetMapping("drop/{id}")
+  public String deletebook(@PathVariable Long id) {
+      bookService.drop(id);
+      return "redirect:/books";
+  }
   
   
   
