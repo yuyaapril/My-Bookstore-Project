@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<th:block th:insert="~{layouts/shares :: head }"></th:block>
+
+  <body>
+    <th:block th:insert="~{layouts/nav :: nav }"></th:block>
+
+    <div class="container">
+      <h1 class="text-center my-5">Error Page</h1>
+
+      <div class="col-md-6 offset-md-3">
+        <div class="alert alert-danger" role="alert" th:text="${errorMessage}">
+               
+        </div>
+      </div>
+
+      <p class="my-5"></p>
+    </div>
+
+    <th:block th:insert="~{layouts/shares :: foot}"></th:block>
+  </body>
+</html>
