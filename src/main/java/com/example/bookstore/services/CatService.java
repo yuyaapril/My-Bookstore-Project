@@ -2,9 +2,11 @@ package com.example.bookstore.services;
 
 import java.util.List;
 
+import org.hibernate.boot.archive.scan.spi.ClassDescriptor.Categorization;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.example.bookstore.models.Role;
+import com.example.bookstore.exceptions.CategoryNotFoundException;
 import com.example.bookstore.models.Category;
 import com.example.bookstore.repos.CatRepo;
 
@@ -28,7 +30,9 @@ public class CatService {
  }
    public Category getById(Integer id) {
      Category category = catRepo.findById(id)
-    .orElseThrow(() -> new RuntimeException("No Role with that id"));
+         .orElseThrow(() -> new CategoryNotFoundException("No Role with that id"));
+    // Category category = catRepo.findById(id)
+    //.orElseThrow(() -> new RuntimeException("No Role with that id"));
     return category;
   }
   

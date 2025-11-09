@@ -13,5 +13,12 @@ public class GlobalExceptionHandler {
     model.addAttribute("errorMessage", e.getMessage());
     return "error";
   }
+
+  @ExceptionHandler(CategoryNotFoundException.class)
+  public String hadleCategoryNotFoundException(Exception e, Model model) {
+    model.addAttribute("errorMessage", e.getMessage());
+    model.addAttribute("errorCode", "404");
+    return "error";
+  }
   
 }

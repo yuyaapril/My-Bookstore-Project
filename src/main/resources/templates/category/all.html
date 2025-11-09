@@ -29,6 +29,9 @@
       <td th:text="${cat.id}">1</td>
       <td th:text="${cat.name}">ITPEC</td>
       <td>
+        <!--<a th:href="@{/cats/edit/1102" class="btn btn-sm btn-warning">
+          <i class="fa fa-edit"></i>
+        </a>-->
         <a th:href="@{/cats/edit/{id}(id=${cat.id})}" class="btn btn-sm btn-warning">
           <i class="fa fa-edit"></i>
         </a>
