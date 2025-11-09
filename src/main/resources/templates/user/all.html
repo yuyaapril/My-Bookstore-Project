@@ -17,74 +17,23 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td scope="row">1</td>
-      <td>001</td>
-      <td>Admin</td>
-      <td>admin@gmail.com</td>
+    <tr th:each="user:${users}">
+      <td>1</td>
+      <td th:text="${user.id}">1</td>
+      <td th:text="${user.username}">Admin</td>
+      <td th:text="${user.email}">admin@gmail.com</td>
       <td>
-        <a href="/edit" class="btn btn-sm btn-warning">
+        <a th:href="@{/users/edit/{id}(id=${user.id})}" class="btn btn-sm btn-warning">
           <i class="fa fa-edit"></i>
         </a>
-        <a href="/ban" class="btn btn-sm btn-success">
+        <!--<a href="/ban" class="btn btn-sm btn-success">
           <i class="fa fa-trash"></i>
         </a>
         <a href="/delete" class="btn btn-sm btn-danger">
           <i class="fa fa-trash"></i>
-        </a>       
+        </a>       -->
       </td>
-    </tr>
-    <tr>
-      <td scope="row">2</td>
-      <td>002</td>
-      <td>Admin</td>
-      <td>admin@gmail.com</td>
-      <td>
-        <a href="/edit" class="btn btn-sm btn-warning">
-          <i class="fa fa-edit"></i>
-        </a>
-        <a href="/ban" class="btn btn-sm btn-success">
-          <i class="fa fa-trash"></i>
-        </a>
-        <a href="/delete" class="btn btn-sm btn-danger">
-          <i class="fa fa-trash"></i>
-        </a>       
-      </td>
-    </tr>
-        <tr>
-      <td scope="row">3</td>
-      <td>003</td>
-      <td>Admin</td>
-      <td>admin@gmail.com</td>
-      <td>
-        <a href="/edit" class="btn btn-sm btn-warning">
-          <i class="fa fa-edit"></i>
-        </a>
-        <a href="/ban" class="btn btn-sm btn-success">
-          <i class="fa fa-trash"></i>
-        </a>
-        <a href="/delete" class="btn btn-sm btn-danger">
-          <i class="fa fa-trash"></i>
-        </a>       
-      </td>
-    </tr>
-        <tr>
-      <td scope="row">4</td>
-      <td>004</td>
-      <td>Admin</td>
-      <td>admin@gmail.com</td>
-      <td>
-        <a href="/edit" class="btn btn-sm btn-warning">
-          <i class="fa fa-edit"></i>
-        </a>
-        <a href="/ban" class="btn btn-sm btn-success">
-          <i class="fa fa-trash"></i>
-        </a>
-        <a href="/delete" class="btn btn-sm btn-danger">
-          <i class="fa fa-trash"></i>
-        </a>       
-      </td>
-    </tr>    
+    </tr>  
    
   </tbody>
 </table>

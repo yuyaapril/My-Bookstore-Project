@@ -20,8 +20,6 @@ import com.example.bookstore.services.UserService;
 import lombok.AllArgsConstructor;
 
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
 
 
 
@@ -65,7 +63,7 @@ public class UserController {
       return "user/all";
     }
   
-    @GetMapping("users/edit{id}")
+    @GetMapping("users/edit/{id}")
     public String getMethodName(@PathVariable Long id, Model model) {
       List<Role> roles = roleService.all();
       AppUser user = userService.getUserById(id);
@@ -74,19 +72,19 @@ public class UserController {
       model.addAttribute("roles", roles);
       model.addAttribute("userRoles", userRoles);
       model.addAttribute("userId", id);
-      return "users/edit";
+      return "user/edit";
     }
 
     @GetMapping("users/add/role/{uid}/{rid}")
     public String addRoleToUser(@PathVariable Long uid, @PathVariable Integer rid, Model model) {
       userService.addRoleToUser(uid, rid);
-      return "redirect:/users";
+      return "redirect:/users/edit/"+uid;
     }
     
     @GetMapping("users/remove/role/{uid}/{rid}")
     public String removeRoleFromUser(@PathVariable Long uid, @PathVariable Integer rid, Model model) {
       userService.removeRoleFromUser(uid, rid);
-        return "redirect:/users";
+         return "redirect:/users/edit/"+uid;
     }
     
     

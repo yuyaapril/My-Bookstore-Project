@@ -19,22 +19,13 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td scope="row">1</td>
-      <td>001</td>
-      <td>Role_Manager</td>
+
+        <tr th:each="role:${roles}" th:if="${not #lists.contains(userRoles,role)}">
+      <td >1</td>
+      <td th:text="${role.id}">001</td>
+      <td th:text="${role.name}">Role_Admin</td>
       <td>
-        <a href="/edit" class="btn btn-sm btn-danger">
-          <i class="fa fa-add"></i>
-        </a>     
-      </td>
-    </tr>
-        <tr>
-      <td scope="row">1</td>
-      <td>001</td>
-      <td>Role_Admin</td>
-      <td>
-        <a href="/edit" class="btn btn-sm btn-danger">
+        <a th:href="@{/users/add/role/{uid}/{rid}(uid=${userId},rid=${role.id})}" class="btn btn-sm btn-warning">
           <i class="fa fa-add"></i>
         </a>     
       </td>
@@ -54,12 +45,12 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td scope="row">1</td>
-      <td>001</td>
-      <td>Role_User</td>
+    <tr th:each="role : ${userRoles}">
+      <td>1</td>
+      <td th:text="${role.id}">001</td>
+      <td th:text="${role.name}">Role_User</td>
       <td>
-        <a href="/edit" class="btn btn-sm btn-warning">
+        <a th:href="@{/users/remove/role/{uid}/{rid}(uid=${userId},rid=${role.id})}" class="btn btn-sm btn-danger">
           <i class="fa fa-remove"></i>
         </a>     
       </td>

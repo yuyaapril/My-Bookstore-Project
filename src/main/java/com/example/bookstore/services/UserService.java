@@ -65,7 +65,7 @@ public class UserService implements UserDetailsService{
       roles.add(role.get());
       userRepo.save(user);
     } else {
-      throw new RuntimeException("No Role with that id")
+      throw new RuntimeException("No Role with that id");
     }
   }
 
