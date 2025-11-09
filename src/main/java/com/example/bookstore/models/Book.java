@@ -28,6 +28,7 @@ public class Book {
   private int stock;
   
   @ManyToOne
+  
   @JoinColumn(name="category_id",nullable = false)
   private Category category;
 }

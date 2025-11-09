@@ -48,10 +48,10 @@ public class WebSecurityConfig {
                .csrf(AbstractHttpConfigurer::disable)
                .formLogin(httpForm -> {
                    httpForm.loginPage("/login").permitAll();
-                   httpForm.successForwardUrl("/");
+                   httpForm.defaultSuccessUrl("/");
                })
                .authorizeRequests(registry ->{
-                registry.requestMatchers("/login", "/register","/css/**","/js/**","/imgs/**");
+                registry.requestMatchers("/login", "/register","/css/**","/js/**","/imgs/**").permitAll();
                 registry.anyRequest().authenticated();
                })
                .build();
